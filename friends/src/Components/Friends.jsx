@@ -7,11 +7,21 @@ constructor(props){
 }
 
     render(){
-        return (<StyledDiv>
+        return (<>  
+        <StyledDiv>
             <ul>
             {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email}</li>)}
             </ul>
-        </StyledDiv>)
+        </StyledDiv>
+        <StyledForms>
+            Name: <input type="text"/>
+            Age: <input type="text"/>
+            Email: <input type="text"/>
+            <br></br>
+            <button>Add</button>
+        </StyledForms>
+             </>)
+        
     }
 }
 
@@ -33,4 +43,12 @@ const StyledDiv = styled.div`
            border-bottom:1px solid black
        }
    }
+`
+
+const StyledForms = styled.form`
+    display:flex;
+    align-content:center;
+    flex-flow:column;
+    width:200px;
+    margin:0 auto;
 `

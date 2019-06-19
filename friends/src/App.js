@@ -30,8 +30,6 @@ class App extends React.Component{
 
   componentDidMount() {
     this.fetchItemsWithAxios();
-    // this.fetchItemsWithNativeFetch();
-    // this.fetchItemsWithJquery();
   }
 
   render(){
