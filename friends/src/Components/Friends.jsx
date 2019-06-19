@@ -4,21 +4,62 @@ import styled from 'styled-components'
 class Friends extends React.Component{
 constructor(props){
     super(props)
+    this.state = {
+       friend: {
+        name: '',
+        age:'',
+        email:''
+       }
+    }
+}
+
+handleChange = e => {
+    this.setState({
+        friend: {
+            ...this.state.friend,
+            [e.target.name]: e.target.value
+        }
+    })
+}
+
+postFriend = e => {
+    this.props.postFriend(this.state.friend)
 }
 
     render(){
         return (<>  
         <StyledDiv>
             <ul>
-            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email}</li>)}
+            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} </li>)}
             </ul>
         </StyledDiv>
-        <StyledForms>
-            Name: <input type="text"/>
-            Age: <input type="text"/>
-            Email: <input type="text"/>
-            <br></br>
-            <button>Add</button>
+        <StyledForms onSubmit={this.postFriend}>
+            <input 
+            type="text" 
+            name='name' 
+            placeholder='Name' 
+            onChange={this.handleChange}
+            value={this.state.friend.name}
+            />
+            <br/>
+            <input 
+            type="text" 
+            name='age' 
+            placeholder='Age'
+            onChange={this.handleChange}
+            value={this.state.friend.age}
+            />
+            
+            <br/>
+            <input 
+            type="text" 
+            name='email' 
+            placeholder='Email' 
+            onChange={this.handleChange}
+            value={this.state.friend.email}
+            />
+            <br/>
+            <button type='submit'>Add</button>
         </StyledForms>
              </>)
         
