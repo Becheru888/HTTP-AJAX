@@ -32,11 +32,15 @@ putFriend = (e) => {
     this.props.putFriend(1, this.state.friend)
 }
 
+deleteFriend = (e) => {
+    this.props.deleteFriend(1, this.state.friend)
+}
+
     render(){
         return (<>  
         <StyledDiv>
             <ul>
-            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} <button>Delete</button></li>)}
+            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} <button onClick={this.deleteFriend}>Delete</button></li>)}
             </ul>
         </StyledDiv>
         <StyledFormWrapper>
