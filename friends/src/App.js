@@ -17,12 +17,6 @@ class App extends React.Component{
     }
   }
 
-  postFriend = friend => {
-    axios.post('http://localhost:5000/friends', friend)
-    .then(response => {console.log(response)})
-    .catch(error => {console.log(error)})
-  }
-
 
   fetchItemsWithAxios = () => {
     axios.get('http://localhost:5000/friends')
@@ -33,14 +27,24 @@ class App extends React.Component{
       })
   }
 
+  
+
+  putFriend = (id, updatedFriend) => {
+    axios.put(`http://localhost:5000/friends/${id}`, updatedFriend)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
   componentDidMount() {
     this.fetchItemsWithAxios();
   }
 
+
+
   render(){
     
     return <>
-          <Friends firendsList={this.state.friends} postFriend={this.postFriend}/>
+          <Friends firendsList={this.state.friends} postFriend={this.postFriend} putFriend={this.putFriend}/>
           </>
   }
 }
