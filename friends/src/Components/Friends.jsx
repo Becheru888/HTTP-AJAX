@@ -13,7 +13,7 @@ constructor(props){
     }
 }
 
-handleChange2 = e => {
+handleChange = e => {
     this.setState({
         friend: {
             ...this.state.friend,
@@ -24,19 +24,20 @@ handleChange2 = e => {
 
 
 
-postFriend = (e) => {
+postFriend = () => {
     this.props.postFriend(this.state.friend)
 }
 
-putFriend = (e) => {
+putFriend = () => {
     this.props.putFriend(1, this.state.friend)
 }
 
-deleteFriend = (e) => {
+deleteFriend = () => {
     this.props.deleteFriend(1, this.state.friend)
 }
 
     render(){
+       
         return (<>  
         <StyledDiv>
             <ul>
@@ -49,7 +50,7 @@ deleteFriend = (e) => {
             type="text" 
             name='name' 
             placeholder='Name' 
-            onChange={this.handleChange2}
+            onChange={this.handleChange}
             value={this.state.friend.name}
             />
             <br/>
