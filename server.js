@@ -61,6 +61,8 @@ app.post('/friends', (req, res) => {
   res.status(201).json(friends);
 });
 
+
+
 app.put('/friends/:id', (req, res) => {
   const { id } = req.params;
   let friendIndex = friends.findIndex(friend => friend.id == id);
