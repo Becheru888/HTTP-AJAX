@@ -35,6 +35,7 @@ putFriend = (e) => {
         <StyledDiv>
             <ul>
             {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} </li>)}
+            <button>Delete</button>
             </ul>
         </StyledDiv>
         <StyledFormWrapper>
