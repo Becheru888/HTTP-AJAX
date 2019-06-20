@@ -39,6 +39,13 @@ class App extends React.Component{
     .catch(err => console.log(err))
   }
 
+  deleteFriend = (id) => {
+
+    axios.delete(`http://localhost:5000/friends/${id}`)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
   componentDidMount() {
     this.fetchItemsWithAxios();
   }
@@ -48,7 +55,7 @@ class App extends React.Component{
   render(){
     
     return <>
-          <Friends firendsList={this.state.friends} postFriend={this.postFriend} putFriend={this.putFriend}/>
+          <Friends firendsList={this.state.friends} postFriend={this.postFriend} putFriend={this.putFriend} deleteFriend={this.deleteFriend}/>
           </>
   }
 }

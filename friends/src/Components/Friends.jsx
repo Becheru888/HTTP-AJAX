@@ -13,7 +13,7 @@ constructor(props){
     }
 }
 
-handleChange = e => {
+handleChange2 = e => {
     this.setState({
         friend: {
             ...this.state.friend,
@@ -21,6 +21,8 @@ handleChange = e => {
         }
     })
 }
+
+
 
 postFriend = (e) => {
     this.props.postFriend(this.state.friend)
@@ -34,8 +36,7 @@ putFriend = (e) => {
         return (<>  
         <StyledDiv>
             <ul>
-            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} </li>)}
-            <button>Delete</button>
+            {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} <button>Delete</button></li>)}
             </ul>
         </StyledDiv>
         <StyledFormWrapper>
@@ -44,7 +45,7 @@ putFriend = (e) => {
             type="text" 
             name='name' 
             placeholder='Name' 
-            onChange={this.handleChange}
+            onChange={this.handleChange2}
             value={this.state.friend.name}
             />
             <br/>
