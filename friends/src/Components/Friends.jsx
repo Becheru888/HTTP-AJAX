@@ -23,12 +23,10 @@ handleChange = e => {
 }
 
 postFriend = (e) => {
-    e.preventDefault()
     this.props.postFriend(this.state.friend)
 }
 
 putFriend = (e) => {
-    e.preventDefault();
     this.props.putFriend(1, this.state.friend)
 }
 

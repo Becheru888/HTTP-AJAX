@@ -27,7 +27,11 @@ class App extends React.Component{
       })
   }
 
-  
+  postFriend = friend => {
+    axios.post('http://localhost:5000/friends', friend)
+    .then(response => {console.log(response)})
+    .catch(error => {console.log(error)})
+  }
 
   putFriend = (id, updatedFriend) => {
     axios.put(`http://localhost:5000/friends/${id}`, updatedFriend)
