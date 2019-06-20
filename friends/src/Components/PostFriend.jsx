@@ -39,7 +39,6 @@ putFriend = (e) => {
             {this.props.firendsList.map(elm => <li>NAME: {elm.name}<br/> Age: {elm.age}<br/> Email: {elm.email} </li>)}
             </ul>
         </StyledDiv>
-        <StyledFormWrapper>
         <StyledForms onSubmit={this.postFriend}>
             <input 
             type="text" 
@@ -67,36 +66,7 @@ putFriend = (e) => {
             />
             <br/>
             <button type='submit'>Post</button>
-        </StyledForms>
-        <StyledForms onSubmit={this.putFriend}>
-            <input 
-            type="text" 
-            name='name' 
-            placeholder='Name' 
-            onChange={this.handleChange}
-            value={this.state.friend.name}
-            />
-            <br/>
-            <input 
-            type="text" 
-            name='age' 
-            placeholder='Age'
-            onChange={this.handleChange}
-            value={this.state.friend.age}
-            />
-            
-            <br/>
-            <input 
-            type="text" 
-            name='email' 
-            placeholder='Email' 
-            onChange={this.handleChange}
-            value={this.state.friend.email}
-            />
-            <br/>
-            <button type='submit'>Put</button>
-        </StyledForms>
-        </StyledFormWrapper>
+        </StyledForms>   
              </>)
         
     }

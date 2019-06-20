@@ -1,11 +1,11 @@
 import React from 'react';
-import Friends from './Components/Friends'
+import PostFriends from './Components/PostFriend'
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
 
-
+const data = "http://localhost:5000/friends/";
 
 
 class App extends React.Component{
@@ -18,8 +18,8 @@ class App extends React.Component{
   }
 
 
-  fetchItemsWithAxios = () => {
-    axios.get('http://localhost:5000/friends')
+  fetchData  = () => {
+    axios.get(data)
       .then(response => {
         this.setState({ friends: response.data });
       })
@@ -27,7 +27,9 @@ class App extends React.Component{
       })
   }
 
-  
+  componentDidMount() {
+    this.fetchData();
+  }
 
   putFriend = (id, updatedFriend) => {
     axios.put(`http://localhost:5000/friends/${id}`, updatedFriend)
@@ -35,16 +37,14 @@ class App extends React.Component{
     .catch(err => console.log(err))
   }
 
-  componentDidMount() {
-    this.fetchItemsWithAxios();
-  }
+ 
 
 
 
   render(){
     
     return <>
-          <Friends firendsList={this.state.friends} postFriend={this.postFriend} putFriend={this.putFriend}/>
+          <PostFriends firendsList={this.state.friends} postFriend={this.postFriend} putFriend={this.putFriend}/>
           </>
   }
 }
